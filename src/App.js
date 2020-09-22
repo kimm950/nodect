@@ -6,7 +6,7 @@ function App() {
 
   const callAPI = () => {
     fetch("http://localhost:3002/api")
-      .then(res => res.text())
+      .then(res => res.json())
       .then(res => setApiRes(res))
   }
 
@@ -14,14 +14,18 @@ function App() {
     callAPI();
     console.log('sup');
   }, [])
-  const [apiRes, setApiRes] = useState('')
+  const [apiRes, setApiRes] = useState({});
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          {apiRes}
+          {Object.keys(apiRes).map((obj, idx) => {
+            return (
+              <li>N0:{idx + 1}    {apiRes[obj]}</li>
+            );
+          })}
         </p>
         <a
           className="App-link"

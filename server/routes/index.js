@@ -5,7 +5,10 @@ router.get('/', (req, res, next) => {
   res.send({
     greeting: 'Hello React x Node',
     react: 'React!',
-    node: 'Node!'
+    node: 'Node',
+    name: 'Kim!',
+    role: 'JS lover',
+    age: '25!',
   });
 });
 
